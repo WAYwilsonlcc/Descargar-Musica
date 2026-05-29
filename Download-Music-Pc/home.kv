@@ -1,0 +1,45 @@
+<DownloaderUI>:
+    orientation: "vertical"
+    padding: 40
+    spacing: 20
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 1   # Fondo negro
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "Ingresa la URL de YouTube:"
+        font_size: 30
+        color: 1, 0, 0, 1   # Letras rojas
+        bold: True
+
+    TextInput:
+        id: url_input
+        hint_text: "https://youtube.com/..."
+        multiline: False
+        foreground_color: 0, 0.5, 1, 1
+        background_color: 0.1, 0.1, 0.1, 1
+        padding: [10, 10]
+
+    Button:
+        text: "Descargar MP3"
+        size_hint: (1, 0.3)
+        background_normal: ""
+        background_color: 1, 0, 0, 1
+        color: 1, 1, 1, 1
+        canvas.before:
+            Color:
+                rgba: 1, 0, 0, 0.5
+            Line:
+                rectangle: (self.x, self.y, self.width, self.height)
+                width: 5
+        on_press: root.abrir_selector()
+
+    Label:
+        id: result_label
+        text: ""
+        font_size: 30
+        color: 1, 0, 0, 1
+        bold: True
